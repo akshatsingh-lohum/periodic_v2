@@ -27,20 +27,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <header>
-        <Header />
-      </header>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <main className="flex-1 container mx-auto px-4 py-8 mt-16 mb-16">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+          <div className="py-2">
+            <Header />
+          </div>
+        </header>
+        <main
+          className="flex-1 container mx-auto px-4 py-6"
+          style={{ marginTop: "var(--header-height, 5rem)" }}
+        >
           {children}
         </main>
-        <Footer />{" "}
+
+        {/* <footer className="mt-auto">
+          <div className="py-6">
+            <Footer />
+          </div>
+        </footer> */}
       </body>
-      <footer>
-        <Footer />
-      </footer>
     </html>
   );
 }

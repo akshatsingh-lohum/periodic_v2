@@ -1,22 +1,15 @@
 "use client";
-
-import { elementData } from "@/data/elementData";
-import ElementBox from "./ElementBox";
-
 import { useState } from "react";
 
-import { ElementCategory } from "@/app/categories/ElementCategory";
+import { elementData } from "@/data/elementData";
+import { Element } from "@/app/categories/Element";
+import ElementBox from "./ElementBox";
 
-interface Element {
-  number: number;
-  symbol: string;
-  category: ElementCategory;
-  group: number;
-  period: number;
-  weight: string;
+interface PeriodicTableProps {
+  onElementClick: (element: Element | null) => void;
 }
 
-export default function PeriodicTable() {
+export default function PeriodicTable({ onElementClick }: PeriodicTableProps) {
   const [selectedElement, setSelectedElement] = useState(-1);
 
   const getElementByPosition = (
@@ -28,6 +21,9 @@ export default function PeriodicTable() {
 
   const handleElementClick = (elementNumber: number): void => {
     setSelectedElement(elementNumber);
+    const element =
+      elementData.find((el) => el.number === elementNumber) || null;
+    onElementClick(element);
   };
 
   return (

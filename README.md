@@ -1,3 +1,9 @@
+Next steps:
+
+1. Make element details1, 2, 3 and pass them in SccordionShadCn
+
+===============================
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
