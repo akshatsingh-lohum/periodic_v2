@@ -9,7 +9,7 @@ export const parseExcelFile = (file) => {
     .slice(1)
     .filter((row) => row[0] && row[1] && row[0] != "Atomic Number") // Ensure row has at least number and name
     .map((row) => ({
-      number: row[0]?.toString() || "",
+      number: row[0] ? row[0] : "",
       name: row[1]?.toString() || "",
       description: row[2]?.toString() || "",
       total_resources: row[3]?.toString() || "0",
